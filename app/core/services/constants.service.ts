@@ -1,12 +1,10 @@
-import { Injectable } from '@angular/core';
-
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class ConstantsService {
+  baseUrl = "https://reqres.in/api/";
 
-    baseUrl = "https://reqres.in/api/"; 
-
-  constructor() { }
+  constructor() {}
 }

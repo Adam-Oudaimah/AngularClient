@@ -1,62 +1,69 @@
-<div class="col-md-12 ">
-    <div class="text-center users_container">
-        <div class="row">
-            <div class="col-lg-3">
-                <button mat-raised-button color="primary" (click)="refresPage()">All Users</button>
-            </div>
-            <div class="col-lg-6">
-                <h2 style="margin: auto "> Users </h2>
-            </div>
-            <div class="col-lg-3">
-                <form class="example-form">
-                    <mat-form-field class="example-full-width">
-                        <input type="number" (keyup.enter)="searchUserById($event)"
-                               matInput placeholder="Search user by Id">
-                        <mat-icon matSuffix>search</mat-icon>
-                    </mat-form-field>
-                </form>
-            </div>
-        </div>
-
-
-    </div>
-    <div *ngIf="loading" class="my-loading row">
-        <mat-spinner [diameter]="50"></mat-spinner>
-    </div>
-
-    <table *ngIf="!loading" class="table table-striped">
-        <thead>
-
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of users">
-                <td (click)="showDetails(user.id)">
-                    <div class="user_card">
-                        <img src="{{user.avatar}}" alt="Avatar">
-                        {{user.first_name}} {{user.last_name}}
-                    </div>
-                    <!--<img src="{{user.avatar}}" alt="Avatar">-->
-                </td>
-                <!--  <td>{{user.first_name}} {{user.last_name}}</td>-->
-
-
-            </tr>
-
-        </tbody>
-
-        <button color="primary" mat-fab style="margin:10px"
-                [disabled]="currentPage==1" (click)="previousPage()">
-            <mat-icon style="font-size: 25px; color:white">
-                navigate_before
-            </mat-icon>
+<div class="col-md-12">
+  <div class="text-center users_container">
+    <div class="row">
+      <div class="col-lg-3">
+        <button mat-raised-button color="primary" (click)="refresPage()">
+          All Users
         </button>
-        <button color="primary" mat-fab style="margin:10px"
-                [disabled]="currentPage==totalPages" (click)="nextPage()">
-            <mat-icon style="font-size: 25px; color:white">
-                navigate_next
-                t-
-            </mat-icon>
-        </button>
+      </div>
+      <div class="col-lg-6">
+        <h2 style="margin: auto">Users</h2>
+      </div>
+      <div class="col-lg-3">
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <input
+              type="number"
+              (keyup.enter)="searchUserById($event)"
+              matInput
+              placeholder="Search user by Id"
+            />
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="loading" class="my-loading row">
+    <mat-spinner [diameter]="50"></mat-spinner>
+  </div>
 
-    </table>
+  <table *ngIf="!loading" class="table table-striped">
+    <thead></thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td (click)="showDetails(user.id)">
+          <div class="user_card">
+            <img src="{{ user.avatar }}" alt="Avatar" />
+            {{ user.first_name }} {{ user.last_name }}
+          </div>
+          <!--<img src="{{user.avatar}}" alt="Avatar">-->
+        </td>
+        <!--  <td>{{user.first_name}} {{user.last_name}}</td>-->
+      </tr>
+    </tbody>
+
+    <button
+      color="primary"
+      mat-fab
+      style="margin: 10px"
+      [disabled]="currentPage == 1"
+      (click)="previousPage()"
+    >
+      <mat-icon style="font-size: 25px; color: white">
+        navigate_before
+      </mat-icon>
+    </button>
+    <button
+      color="primary"
+      mat-fab
+      style="margin: 10px"
+      [disabled]="currentPage == totalPages"
+      (click)="nextPage()"
+    >
+      <mat-icon style="font-size: 25px; color: white">
+        navigate_next t-
+      </mat-icon>
+    </button>
+  </table>
 </div>

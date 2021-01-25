@@ -1,57 +1,52 @@
 <div class="container">
-    
-
-    <div class="user_card">
-        <div *ngIf="loading" class="my-loading row"  >
-            <mat-spinner [diameter]="50"></mat-spinner>
-        </div>
-        <div *ngIf="!loading" class="row " style="margin-right: 0; margin-left: 0; padding:100px;">
-
-            <div class="col-lg-4   text-center">
-
-                <img src='{{user.avatar}}'
-                     class="mx-auto img-fluid img-circle d-block"
-                     style="border-radius:20px;"
-                     width="200"
-                     height="300"
-                     alt="avatar">
-                <br />
-            </div>
-            <div class="col-lg-6  ">
-
-
-                <div class="row">
-
-                    <div class="col-md-6">
-
-
-                        <h5>
-                            <mat-icon style="font-size: 15px;color:#2d94c1;">person</mat-icon>
-                            {{user.first_name}} {{user.last_name}}
-                        </h5>
-
-                        <h6 *ngIf="user.email!=null">
-                            <mat-icon style="font-size: 15px;color:#2d94c1;" *ngIf="user.email!=null">email</mat-icon>
-                            {{user.email}}
-                        </h6>
-
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-            <div class="col-lg-2  ">
-                <button color="primary" mat-fab (click)="backClicked()">
-                    <mat-icon style="font-size: 25px; color:white">
-                        keyboard_backspace
-                    </mat-icon>
-                </button>
-            </div>
-        </div>
-
+  <div class="user_card">
+    <div *ngIf="loading" class="my-loading row">
+      <mat-spinner [diameter]="50"></mat-spinner>
     </div>
+    <div
+      *ngIf="!loading"
+      class="row"
+      style="margin-right: 0; margin-left: 0; padding: 100px"
+    >
+      <div class="col-lg-4 text-center">
+        <img
+          src="{{ user.avatar }}"
+          class="mx-auto img-fluid img-circle d-block"
+          style="border-radius: 20px"
+          width="200"
+          height="300"
+          alt="avatar"
+        />
+        <br />
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>
+              <mat-icon style="font-size: 15px; color: #2d94c1"
+                >person</mat-icon
+              >
+              {{ user.first_name }} {{ user.last_name }}
+            </h5>
 
+            <h6 *ngIf="user.email != null">
+              <mat-icon
+                style="font-size: 15px; color: #2d94c1"
+                *ngIf="user.email != null"
+                >email</mat-icon
+              >
+              {{ user.email }}
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <button color="primary" mat-fab (click)="backClicked()">
+          <mat-icon style="font-size: 25px; color: white">
+            keyboard_backspace
+          </mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
